@@ -1,0 +1,42 @@
+[
+  {
+    "id": "BTC",
+    "name": "Bitcoin"
+  },
+  {
+    "id": "LTC",
+    "name": "Litecoin"
+  },
+  {
+    "id": "ETH",
+    "name": "Ethereum"
+  },
+  {
+    "id": "XRP",
+    "name": "Ripple"
+  },
+  {
+    "id": "NXT",
+    "name": "Nxt"
+  },
+  {
+    "id": "ETC",
+    "name": "Ethereum Classic"
+  },
+  {
+    "id": "DOGE",
+    "name": "Dogecoin"
+  },
+  {
+    "id": "ZEC",
+    "name": "ZCash"
+  },
+  {
+    "id": "DASH",
+    "name": "DigitalCash"
+  },
+  {
+    "id": "NEO",
+    "name": "NEO"
+  }
+]
