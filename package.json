@@ -1,0 +1,18 @@
+{
+  "name": "gpu-price-surge-analysis",
+  "author": "Steffen Kühne",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stekhn/gpu-price-surge-analysis.git"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1"
+  }
+}
