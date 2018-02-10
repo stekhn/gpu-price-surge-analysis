@@ -1,8 +1,18 @@
 body {
+  font-family: Helvetica, Arial, sans-serif;
   background: antiquewhite;
   margin: 0;
 }
 
+#chart {
+  width: 100%;
+}
+
 svg {
   overflow: visible;
+  font-size: 16px;
+}
+
+.axis .domain {
+  display: none;
 }
