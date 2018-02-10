@@ -1,6 +1,11 @@
 {
-  extends: 'eslint:recommended',
-  parser: 'babel-eslint',
+  'extends': 'eslint:recommended',
+  'parser': 'babel-eslint',
+  'globals': {
+    'async': true,
+    'd3': true,
+    'request': true
+  },
   'rules': {
     'indent': [2, 2, { 'SwitchCase': 1 }],
     'quotes': [2, 'single'],

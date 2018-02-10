@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "async": "^2.6.0",
+    "d3": "^4.13.0",
     "request": "^2.83.0"
   },
   "devDependencies": {
