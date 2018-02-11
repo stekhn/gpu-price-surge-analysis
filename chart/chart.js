@@ -91,7 +91,7 @@ function drawAxis(current) {
     .range([0, width - margin.left -margin.right]);
 
   var yScale = d3.scaleLinear()
-    .domain([-85, 100])
+    .domain([-85, 200])
     .range([height - margin.top -margin.bottom, 0]);
 
   if (current.drawAxis) {
@@ -123,10 +123,10 @@ function drawLines(current) {
     .y(function (d) {
       return current.scale.y(d.price);
     })
-    .curve(d3.curveCardinal);
+    .curve(d3.curveMonotoneX);
 
   var lines = current.chart.append('g')
-      .attr('class', 'lines')
+      .attr('class', 'lines ' + current.text.toLowerCase())
     .selectAll('.line')
       .data(current.data)
       .enter()
@@ -173,10 +173,15 @@ function drawAnnotations(current) {
 
   var annotations = [
     {
-      note: { title: '2017-09-14', label: 'Dogecoin and Nxt hit the bottom' },
+      note: {
+        title: 'China cracks down on cryptocurrencies',
+        padding: 8,
+        wrap: 140
+      },
+      subject: { radius: 50, radiusPadding: 10 },
       data: {
         date: '2017-09-14T00:00:00.000Z',
-        price: -44.713149975546614
+        price: -23.865453333834303
       },
       disable: 'subject',
       connector: { end: 'dot' },
@@ -184,21 +189,28 @@ function drawAnnotations(current) {
       dy: 25,
       dx: 50
     }, {
-      note: { title: '2018-01-09', label: 'All time high' },
+      note: {
+        title: 'Bitcoin reaches all time high',
+        wrap: 140
+      },
       data: {
-        date: '2018-01-09T00:00:00.000Z',
-        price: 76.10600731573426
+        date: '2017-12-16T00:00:00.000Z',
+        price: 266.55474993006135
       },
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: -25,
-      dx: -50
+      dy: 125,
+      dx: -75
     }, {
-      note: { title: '2018-02-05', label: 'Price scare' },
+      note: {
+        title: 'Bitcoin drops 50 % in two weeks',
+        padding: 8,
+        wrap: 140
+      },
       data: {
         date: '2018-02-05T00:00:00.000Z',
-        price: 39.999759546739995
+        price: 100.12290999653442
       },
       disable: 'subject',
       connector: { end: 'dot' },

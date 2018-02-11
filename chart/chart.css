@@ -9,13 +9,20 @@ html {
 body {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 1em;
   background: antiquewhite;
   margin: 0;
 }
 
-h1 {
+h1, h2, h3 {
   font-weight: normal;
+  margin: 1.5em 0 .5em;
+}
+
+p {
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+  margin: .5em 0 1.5em;
 }
 
 a {
@@ -23,12 +30,26 @@ a {
 }
 
 article {
-  max-width: 1230px;
-  padding: 0 20px 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-header {
-  margin-bottom: 2.5em;
+header, section, footer {
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+header .wrapper {
+  width: 65%;
+}
+
+header .key {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 header .circle {
@@ -46,6 +67,10 @@ header .circle.gpus {
 
 header .circle.currencies {
   background: tomato;
+}
+
+figure {
+  margin: 1em 0 2em;
 }
 
 #chart {
