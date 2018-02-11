@@ -1,7 +1,51 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
   background: antiquewhite;
   margin: 0;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+a {
+  color: #000;
+}
+
+article {
+  max-width: 1230px;
+  padding: 0 20px 10px;
+}
+
+header {
+  margin-bottom: 2.5em;
+}
+
+header .circle {
+  display: inline-block;
+  margin-right: 2px;
+  margin-left: 20px;
+  height: .75em;
+  width: .75em;
+  border-radius: 100%;
+}
+
+header .circle.gpus {
+  background: dodgerblue;
+}
+
+header .circle.currencies {
+  background: tomato;
 }
 
 #chart {
@@ -10,9 +54,24 @@ body {
 
 svg {
   overflow: visible;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.axis {
+  font-size: 14px;
 }
 
 .axis .domain {
   display: none;
+}
+
+footer {
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+}
+
+@media all and (max-width: 640px) {
+  .axis g:nth-child(odd) {
+    display: none;
+  }
 }

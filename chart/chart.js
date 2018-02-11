@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', init, false);
 var width = 800;
 var height = 500;
 
-var margin = { top: 40, right: 60, bottom: 40, left: 60 };
+var margin = { top: 10, right: 50, bottom: 40, left: 50 };
 
 var timeout;
 var gpuData, currencyData;
@@ -57,6 +57,8 @@ function drawCurrencies(data, chart) {
   current.scale = drawAxis(current);
   current.lines = drawLines(current);
   current.marker = drawMarker(current);
+
+  drawAnnotations(current);
 }
 
 function drawChart() {
@@ -89,34 +91,21 @@ function drawAxis(current) {
     .range([0, width - margin.left -margin.right]);
 
   var yScale = d3.scaleLinear()
-    .domain([-100, 100])
+    .domain([-85, 100])
     .range([height - margin.top -margin.bottom, 0]);
 
   if (current.drawAxis) {
 
     current.chart.append('g')
-        .attr('class', 'axis')
-        .attr('transform', 'translate(0,' + (height - margin.top - margin.bottom) + ')')
-        .call(d3.axisBottom(xScale).ticks(5))
-      .append('text')
-        .attr('x', width)
-        .attr('y', -10)
-        .attr('fill', 'black')
-        .style('text-anchor', 'end')
-        .text('');
+      .attr('class', 'axis')
+      .attr('transform', 'translate(0,' + (height - margin.top - margin.bottom) + ')')
+      .call(d3.axisBottom(xScale).ticks(5));
 
     current.chart.append('g')
-        .attr('class', 'axis')
-        .call(d3.axisLeft(yScale).ticks(5).tickFormat(function (d) {
-          return (d <= 0 ? '' : '+') + d + ' %';
-        }))
-      .append('text')
-        .attr('x', 0)
-        .attr('y', 20)
-        .attr('transform', 'rotate(-90)')
-        .attr('fill', 'black')
-        .style('text-anchor', 'end')
-        .text('');
+      .attr('class', 'axis')
+      .call(d3.axisLeft(yScale).ticks(5).tickFormat(function (d) {
+        return (d <= 0 ? '' : '+') + d + ' %';
+      }));
   }
 
   return {
@@ -136,7 +125,9 @@ function drawLines(current) {
     })
     .curve(d3.curveCardinal);
 
-  var lines = current.chart.selectAll('.line')
+  var lines = current.chart.append('g')
+      .attr('class', 'lines')
+    .selectAll('.line')
       .data(current.data)
       .enter()
     .append('path')
@@ -163,6 +154,7 @@ function drawMarker(current) {
   )[0].value[0];
 
   var marker = current.chart.append('g')
+    .attr('class', 'marker')
     .attr('transform', function () {
       return 'translate(' + current.scale.x(new Date(lastValue.date)) + ',' +
         current.scale.y(lastValue.price) +')';
@@ -173,7 +165,60 @@ function drawMarker(current) {
     .attr('dy', '.25em')
     .attr('fill', current.color)
     .attr('text-anchor', 'start')
+    .attr('font-weight', 'bold')
     .text('+' + Math.round(lastValue.price) + ' %');
+}
+
+function drawAnnotations(current) {
+
+  var annotations = [
+    {
+      note: { title: '2017-09-14', label: 'Dogecoin and Nxt hit the bottom' },
+      data: {
+        date: '2017-09-14T00:00:00.000Z',
+        price: -44.713149975546614
+      },
+      disable: 'subject',
+      connector: { end: 'dot' },
+      color: 'black',
+      dy: 25,
+      dx: 50
+    }, {
+      note: { title: '2018-01-09', label: 'All time high' },
+      data: {
+        date: '2018-01-09T00:00:00.000Z',
+        price: 76.10600731573426
+      },
+      disable: 'subject',
+      connector: { end: 'dot' },
+      color: 'black',
+      dy: -25,
+      dx: -50
+    }, {
+      note: { title: '2018-02-05', label: 'Price scare' },
+      data: {
+        date: '2018-02-05T00:00:00.000Z',
+        price: 39.999759546739995
+      },
+      disable: 'subject',
+      connector: { end: 'dot' },
+      color: 'black',
+      dy: 25,
+      dx: -50
+    }
+  ];
+
+  var makeAnnotations = d3.annotation()
+    .type(d3.annotationCallout)
+    .accessors({
+      x: function (d) { return current.scale.x(new Date(d.date)); },
+      y: function (d) { return current.scale.y(d.price); }
+    })
+    .annotations(annotations);
+
+  current.chart.append('g')
+    .attr('class', 'annotations')
+    .call(makeAnnotations);
 }
 
 function redraw () {
