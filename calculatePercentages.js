@@ -39,9 +39,10 @@ function getCurrencyPercentages() {
 function percentageChange(arr, key) {
 
   return arr.reduce((acc, curr) => {
-    acc.diffs.push(
-      { date: curr.date, price: ((curr[key] - acc.prev) / curr[key]) * 100 }
-    );
+    acc.diffs.push({
+      date: curr.date,
+      price: ((curr[key] - acc.prev) / acc.prev) * 100
+    });
     return acc;
   }, {
     prev: arr[arr.length - 1][key],
