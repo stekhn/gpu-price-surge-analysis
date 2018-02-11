@@ -9,7 +9,6 @@ html {
 body {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-size: 1em;
   background: antiquewhite;
   margin: 0;
 }
@@ -32,7 +31,7 @@ a {
 article {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1em;
 }
 
 header, section, footer {
@@ -42,8 +41,8 @@ header, section, footer {
   z-index: 100;
 }
 
-header .wrapper {
-  width: 65%;
+header .left {
+  max-width: 65%;
 }
 
 header .key {
@@ -54,8 +53,8 @@ header .key {
 
 header .circle {
   display: inline-block;
-  margin-right: 2px;
-  margin-left: 20px;
+  margin-right: .05em;
+  margin-left: .5em;
   height: .75em;
   width: .75em;
   border-radius: 100%;
@@ -79,20 +78,15 @@ figure {
 
 svg {
   overflow: visible;
-  font-size: 14px;
+  font-size: 1em;
 }
 
 .axis {
-  font-size: 14px;
+  font-size: .9em;
 }
 
 .axis .domain {
   display: none;
-}
-
-footer {
-  margin-top: 1em;
-  margin-bottom: 2.5em;
 }
 
 @media all and (max-width: 640px) {

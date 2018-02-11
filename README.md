@@ -16,7 +16,7 @@ The Radeon RX Vega56, Vega64 and Geforce GTX TITAN X have been excluded from the
 
 ### Cryptocurrencies
 
-The selection of cryptocurrencies are based on what I consider important currencies. The price history was retrieved from the [CryptoCompare API](https://cryptocompare.com/)
+The selection of cryptocurrencies is based on what I consider important currencies. The price history was retrieved from the [CryptoCompare API](https://cryptocompare.com/)
 
 - Bitcoin (BTC), Litecoin (LTC), Ethereum (ETH), Ripple (XRP), Nxt (NXT), Ethereum Classic (ETC), Dogecoin (DOGE), ZCash (ZEC), DigitalCash (DASH), NEO (NEO):
 

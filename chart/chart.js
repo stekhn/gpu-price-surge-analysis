@@ -174,7 +174,7 @@ function drawAnnotations(current) {
   var annotations = [
     {
       note: {
-        title: 'China cracks down on cryptocurrencies',
+        title: 'China announces cryptocurrencies',
         padding: 8,
         wrap: 140
       },
