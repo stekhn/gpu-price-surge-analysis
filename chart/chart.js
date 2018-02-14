@@ -5,7 +5,7 @@ var height = 500;
 var breakpoint = 640;
 var isMobile = false;
 
-var margin = { top: 10, right: 50, bottom: 40, left: 50 };
+var margin = { top: 10, right: 50, bottom: 30, left: 50 };
 
 var timeout;
 var gpuData, currencyData;
@@ -95,7 +95,7 @@ function drawAxis(current) {
     .range([0, width - margin.left -margin.right]);
 
   var yScale = d3.scaleLinear()
-    .domain([-85, isMobile ? 350 : 250])
+    .domain([-95, isMobile ? 375 : 250])
     .range([height - margin.top -margin.bottom, 0]);
 
   if (current.drawAxis) {
@@ -143,10 +143,7 @@ function drawLines(current) {
       .attr('stroke-opacity', function (d) {
         return d.key == 'average' ? 1 : 0.2;
       })
-      .attr('d', function (d) { return line(d.value); })
-      .on('mouseenter', function(d) {
-        console.log(d);
-      });
+      .attr('d', function (d) { return line(d.value); });
 
   return lines;
 }

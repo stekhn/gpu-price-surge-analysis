@@ -55,7 +55,7 @@ header .left {
 header .key {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1em;
-  font-weight: bold;
+  margin-top: 0
 }
 
 header .circle {
