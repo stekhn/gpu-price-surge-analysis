@@ -7,7 +7,7 @@ const currencies = require('./data/currency-list.json');
 async.eachLimit(currencies, 1, (currency, callback) => {
 
   // API documentation: https://min-api.cryptocompare.com/
-  request('https://min-api.cryptocompare.com/data/histoday?fsym=' + currency.id +'&tsym=EUR&limit=185&aggregate=1',
+  request('https://min-api.cryptocompare.com/data/histoday?fsym=' + currency.id +'&tsym=EUR&limit=186&aggregate=1',
     (error, response, body) => {
 
       if (error && response.statusCode != '200') {
