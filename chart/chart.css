@@ -18,9 +18,16 @@ h1, h2, h3 {
   margin: 1.5em 0 .5em;
 }
 
-p {
+h3 {
+  font-size: 1.25em;
+}
+
+p, li {
   font-family: Georgia, serif;
   font-size: 1.1em;
+}
+
+p {
   margin: .5em 0 1.5em;
 }
 
@@ -92,5 +99,9 @@ svg {
 @media all and (max-width: 640px) {
   .axis g:nth-child(odd) {
     display: none;
+  }
+
+  header .left {
+    max-width: 100%;
   }
 }

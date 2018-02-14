@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', init, false);
 
 var width = 800;
 var height = 500;
+var breakpoint = 640;
+var isMobile = false;
 
 var margin = { top: 10, right: 50, bottom: 40, left: 50 };
 
@@ -66,11 +68,13 @@ function drawChart() {
   var container = d3.select('#chart');
 
   width = container.node().getBoundingClientRect().width;
+  isMobile = width <= breakpoint;
 
   var svg = container
     .append('svg')
       .attr('width', width)
-      .attr('height', height);
+      .attr('height', height)
+      .attr('viewBox', '0 0 ' + width + ' ' + height);
 
   var chart = svg.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
@@ -91,7 +95,7 @@ function drawAxis(current) {
     .range([0, width - margin.left -margin.right]);
 
   var yScale = d3.scaleLinear()
-    .domain([-85, 200])
+    .domain([-85, isMobile ? 350 : 250])
     .range([height - margin.top -margin.bottom, 0]);
 
   if (current.drawAxis) {
@@ -174,9 +178,9 @@ function drawAnnotations(current) {
   var annotations = [
     {
       note: {
-        title: 'China announces cryptocurrencies',
+        title: 'China cracks down on cryptocurrencies',
         padding: 8,
-        wrap: 140
+        wrap: 160
       },
       subject: { radius: 50, radiusPadding: 10 },
       data: {
@@ -186,27 +190,28 @@ function drawAnnotations(current) {
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: 25,
+      dy: isMobile ? 1 : 25,
       dx: 50
     }, {
       note: {
-        title: 'Bitcoin reaches all time high',
-        wrap: 140
+        title: 'Bitcoin reaches all-time high',
+        padding: 8,
+        wrap: 160
       },
       data: {
         date: '2017-12-16T00:00:00.000Z',
-        price: 266.55474993006135
+        price: 264.40001995658275
       },
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: 125,
-      dx: -75
+      dy: isMobile ? 25 : 125,
+      dx: isMobile ? -50 : -75
     }, {
       note: {
         title: 'Bitcoin drops 50 % in two weeks',
         padding: 8,
-        wrap: 140
+        wrap: 160
       },
       data: {
         date: '2018-02-05T00:00:00.000Z',
