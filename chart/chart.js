@@ -95,7 +95,7 @@ function drawAxis(current) {
     .range([0, width - margin.left -margin.right]);
 
   var yScale = d3.scaleLinear()
-    .domain([-95, isMobile ? 375 : 250])
+    .domain([-75, isMobile ? 375 : 350])
     .range([height - margin.top -margin.bottom, 0]);
 
   if (current.drawAxis) {
@@ -176,7 +176,7 @@ function drawAnnotations(current) {
     {
       note: {
         title: 'China cracks down on cryptocurrencies',
-        padding: 8,
+        padding: 0,
         wrap: 160
       },
       subject: { radius: 50, radiusPadding: 10 },
@@ -187,8 +187,8 @@ function drawAnnotations(current) {
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: isMobile ? 1 : 25,
-      dx: 50
+      dy: isMobile ? 1 : -75,
+      dx: 25
     }, {
       note: {
         title: 'Bitcoin reaches all-time high',
@@ -202,12 +202,12 @@ function drawAnnotations(current) {
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: isMobile ? 25 : 125,
-      dx: isMobile ? -50 : -75
+      dy: isMobile ? 25 : 50,
+      dx: isMobile ? -50 : -50
     }, {
       note: {
         title: 'Bitcoin drops 50 % in two weeks',
-        padding: 8,
+        padding: 0,
         wrap: 160
       },
       data: {
@@ -217,7 +217,7 @@ function drawAnnotations(current) {
       disable: 'subject',
       connector: { end: 'dot' },
       color: 'black',
-      dy: 25,
+      dy: -15,
       dx: -50
     }
   ];
