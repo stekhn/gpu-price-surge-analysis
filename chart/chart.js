@@ -92,11 +92,11 @@ function drawAxis(current) {
 
   var xScale = d3.scaleTime()
     .domain([new Date('2017-08-09'), xMax])
-    .range([0, width - margin.left -margin.right]);
+    .range([0, width - margin.left - margin.right]);
 
   var yScale = d3.scaleLinear()
     .domain([-95, isMobile ? 375 : 250])
-    .range([height - margin.top -margin.bottom, 0]);
+    .range([height - margin.top - margin.bottom, 0]);
 
   if (current.drawAxis) {
 
@@ -168,6 +168,8 @@ function drawMarker(current) {
     .attr('text-anchor', 'start')
     .attr('font-weight', 'bold')
     .text('+' + Math.round(lastValue.price) + ' %');
+
+  return marker;
 }
 
 function drawAnnotations(current) {
@@ -230,9 +232,11 @@ function drawAnnotations(current) {
     })
     .annotations(annotations);
 
-  current.chart.append('g')
+  var annotationsEl = current.chart.append('g')
     .attr('class', 'annotations')
     .call(makeAnnotations);
+
+  return annotationsEl;
 }
 
 function redraw () {
