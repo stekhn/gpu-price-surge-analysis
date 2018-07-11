@@ -11,7 +11,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "d3": "^4.13.0",
-    "request": "^2.83.0"
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1"
