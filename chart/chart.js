@@ -259,7 +259,7 @@ function getAverage(data) {
 
   return data.reduce((acc, curr, i) => {
     curr.value.forEach(function (d) {
-      const pos = acc.map(obj => obj.date).indexOf(d.date);
+      var pos = acc.map(obj => obj.date).indexOf(d.date);
       pos > -1 ?
         acc[pos].price = acc[pos].price + d.price / (i + 1) - acc[pos].price / (i + 1) :
         acc.push({ date: d.date, price: d.price });

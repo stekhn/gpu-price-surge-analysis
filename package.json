@@ -9,11 +9,11 @@
     "url": "git@github.com:stekhn/gpu-price-surge-analysis.git"
   },
   "dependencies": {
-    "async": "^2.6.0",
-    "d3": "^4.13.0",
-    "request": "^2.87.0"
+    "async": "^3.0.1",
+    "d3": "^5.9.2",
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1"
+    "babel-eslint": "^10.0.1"
   }
 }
